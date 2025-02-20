@@ -61,15 +61,16 @@ public class Main public static void main(String[] args)
 			System.out.println(findHighestPricedYerbaMate(inventory));
 		}
 	}
+}
 
-public static YerbaMate findHighestPricedYerbaMate(CaffeinatedBeverage[] inventory) {
-	double max;
-	Object highestPricedMate = new Object();
-	for (int i = 0; i <= inventory.length; i++) {
-		if (inventory[i] instanceof YerbaMate && inventory[i].getPrice() > max) {
-			max = inventory[i].getPrice();
-			highestPricedMate = inventory[i];
+	public static YerbaMate findHighestPricedYerbaMate(CaffeinatedBeverage[] inventory) {
+		double max;
+		Object highestPricedMate = new Object();
+		for (int i = 0; i <= inventory.length; i++) {
+			if (inventory[i] instanceof YerbaMate && inventory[i].getPrice() > max) {
+				max = inventory[i].getPrice();
+				highestPricedMate = inventory[i];
+			}
 		}
-	}
 	
 }
