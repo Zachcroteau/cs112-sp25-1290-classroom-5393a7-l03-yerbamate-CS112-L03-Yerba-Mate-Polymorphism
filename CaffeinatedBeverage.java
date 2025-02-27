@@ -40,6 +40,6 @@ public class CaffeinatedBeverage
         CaffeinatedBeverage that = (CaffeinatedBeverage) o;
         return this.ounces == that.ounces &&
                 Double.compare(this.price, that.price) == 0 &&
-               this.name.equals(that.name);
+                this.name.equals(that.name);
     }
 }

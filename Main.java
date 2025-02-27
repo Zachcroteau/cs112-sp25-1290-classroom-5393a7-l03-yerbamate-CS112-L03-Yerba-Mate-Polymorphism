@@ -18,6 +18,7 @@ public class Main {
 
 			switch (choice) {
 				case 1: // Tea
+					keyboard.nextLine();
 					System.out.print("Enter name      : ");
 					name = keyboard.nextLine();
 					System.out.print("Enter ounces    : ");
@@ -34,6 +35,7 @@ public class Main {
 					count++;
 					break;
 				case 2:
+					keyboard.nextLine();
 					System.out.print("Enter name      : ");
 					name = keyboard.nextLine();
 					System.out.print("Enter ounces    : ");
@@ -52,22 +54,31 @@ public class Main {
 		} while (choice != 3);
 
 		if (choice == 3) {
-			for (int i = 0; i <= inventory.length; i++) {
-				System.out.println(inventory.toString());
+			System.out.println("Count: " + inventory.length);
+			for (int i = 0; i < inventory.length; i++) {
+				if (inventory[i] != null) {
+					System.out.println(inventory[i]);
+				}
 			}
-			System.out.println(findHighestPricedYerbaMate(inventory));
+            findHighestPricedYerbaMate(inventory);
 		}
 	}
 
-	public static YerbaMate findHighestPricedYerbaMate(CaffeinatedBeverage[] inventory) {
-		double max;
-		Object highestPricedMate = new Object();
-		for (int i = 0; i <= inventory.length; i++) {
-			if (inventory[i] instanceof YerbaMate && inventory[i].getPrice() > max) {
-				max = inventory[i].getPrice();
-				highestPricedMate = inventory[i];
+	public static void findHighestPricedYerbaMate(CaffeinatedBeverage[] inventory) {
+		double max = 0.00;
+		YerbaMate highestPricedMate = null;
+		for (int i = 0; i < inventory.length; i++) {
+			if (inventory[i] instanceof YerbaMate) {
+				YerbaMate mate = (YerbaMate) inventory[i];
+				if (mate.getPrice() > max) {
+					highestPricedMate = mate;
+				}
 			}
 		}
-
+		if (highestPricedMate != null) {
+			System.out.println("The most expensive Yerba Mate is: " + highestPricedMate.toString());
+		} else {
+			System.out.println("No Yerba Mate in the current inventory");
+		}
 	}
 }
